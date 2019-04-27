@@ -20,7 +20,7 @@ public class ClassAParent implements Parent{
     }
 
     public void callCasting() {
-        Object b = new ClassBChild();
+        Object b = new ClassBChild("123");
         if (b instanceof ClassBChild) {
             casting((ClassBChild)b);
         }

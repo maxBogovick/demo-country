@@ -7,6 +7,9 @@ import java.util.List;
 @Table(name = "USER_ACCOUNT")
 
 public class ClassBChild extends ClassAParent {
+    public ClassBChild(String value) {
+        super(value);
+    }
 
     /*public ClassBChild(final String value, final String name) {
         super(value, name);
@@ -25,7 +28,7 @@ public class ClassBChild extends ClassAParent {
         /*List<? super ClassBChild> list = new ArrayList<>()
         list.add(new ClassAParent());
         list.add(new ClassBChild());*/
-        ClassBChild child = new ClassBChild();
+        ClassBChild child = new ClassBChild("123");
     }
 
 
