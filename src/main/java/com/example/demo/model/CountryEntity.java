@@ -1,6 +1,13 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
 
 @Entity
@@ -9,31 +16,28 @@ public class CountryEntity {
 
     @Id
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_street")
-    @SequenceGenerator(name = "seq_street", sequenceName = "seq_street", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_country")
+    @SequenceGenerator(name = "seq_country", sequenceName = "seq_country", allocationSize = 1)
     private Integer id;
 
     @Column(name = "COUNTRY_NAME", nullable = false, insertable = true, updatable = true)
-    private String countryName;
-
-    @Column(name = "CAPITAL")
-    private String capital;
+    private String name;
 
     @Column(name = "MOTHER_TONGUE")
-    private String mother_tongue;
+    private String motherTongue;
+
     @Column(name = "CURRENCY")
     private String currency;
-    @Column(name = "CITY")
-    private String city;
+
     @Column(name = "SQUARE")
     private double square;
-
 
 
     @Transient
     private Date createDate;
 
-    public CountryEntity() {}
+    public CountryEntity() {
+    }
 
     public Integer getId() {
         return id;
@@ -43,28 +47,20 @@ public class CountryEntity {
         this.id = id;
     }
 
-    public String getCountryName() {
-        return countryName;
+    public String getName() {
+        return name;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCapital() {
-        return capital;
+    public String getMotherTongue() {
+        return motherTongue;
     }
 
-    public void setCapital(String capital) {
-        this.capital = capital;
-    }
-
-    public String getMother_tongue() {
-        return mother_tongue;
-    }
-
-    public void setMother_tongue(String mother_tongue) {
-        this.mother_tongue = mother_tongue;
+    public void setMotherTongue(String motherTongue) {
+        this.motherTongue = motherTongue;
     }
 
     public String getCurrency() {
@@ -73,14 +69,6 @@ public class CountryEntity {
 
     public void setCurrency(String currency) {
         this.currency = currency;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public double getSquare() {
